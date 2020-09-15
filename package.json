@@ -1,5 +1,5 @@
 {
-  "name": "call-logger-lambda-frontend",
+  "name": "dashboard-template",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -21,6 +21,7 @@
     "serverless-offline": "^6.7.0"
   },
   "devDependencies": {
+    "@nuxtjs/vuetify": "^1.11.2",
     "serverless-domain-manager": "^4.2.0"
   }
 }

@@ -1,5 +1,3 @@
 <template>
-    <div>
-        This is a template
-    </div>
+    <div>Index</div>
 </template>

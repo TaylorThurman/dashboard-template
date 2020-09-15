@@ -3,11 +3,11 @@ module.exports = {
   mode: 'universal',
 
   head: {
-    title: 'vue-nuxt-lambda-template',
+    title: 'Dashboard Template',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'vue-nuxt-lambda-template' }
+      { hid: 'description', name: 'description', content: 'Dashobard Template' }
     ]
   },
 
@@ -25,6 +25,10 @@ module.exports = {
     publicPath: `/${require('./secrets.json').NODE_ENV}/_nuxt/` // <= add the path to the cached files
   },
 
+  modules: [
+    '@nuxtjs/vuetify',
+  ],
+
   srcDir: 'client/',
 
   performance: {
@@ -35,5 +39,10 @@ module.exports = {
     base: `/`
   },
 
-  dev: false
+  dev: false,
+
+  server: {
+    port: 3000,
+    host: '0.0.0.0'
+  }
 }
