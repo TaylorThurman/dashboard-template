@@ -17,11 +17,20 @@
         >
             <div class="sidebar">
                 <v-list dense class="sidebar-list">
-                    <v-list-item v-if="$vuetify.breakpoint.smAndDown">
-                        <img class="mx-4" height="40px"
-                             src=""
-                             alt="Logo"/>
+                    <v-list-item>
+                        <v-list-item-action>
+                            <img height="35px" style="border-radius: 50%;
+    background-color: hsla(0,0%,100%,.9);"
+                                 src="https://demos.creative-tim.com/vue-black-dashboard-pro/img/icon-vue.png"
+                                 alt="Logo"/>
+                        </v-list-item-action>
+                        <v-list-item-content>
+                            <v-list-item-title>
+                                <h3>Title</h3>
+                            </v-list-item-title>
+                        </v-list-item-content>
                     </v-list-item>
+                    <hr class="ml-3 mr-3 mt-2 mb-2"/>
                     <v-list-item
                             v-for="item in items"
                             :key="item.text"
@@ -34,21 +43,6 @@
                                 {{ item.text }}
                             </v-list-item-title>
                         </v-list-item-content>
-                    </v-list-item>
-
-                    <v-list-item class="mt-4"
-                                 link>
-                        <v-list-item-action>
-                            <v-icon color="grey darken-1">mdi-plus-circle-outline</v-icon>
-                        </v-list-item-action>
-                        <v-list-item-title class="grey--text text--darken-1">Browse Channels</v-list-item-title>
-                    </v-list-item>
-                    <v-list-item link>
-                        <v-list-item-action>
-                            <v-icon color="grey darken-1">mdi-cog</v-icon>
-                        </v-list-item-action>
-                        <v-list-item-title class="grey--text text--darken-1">Manage Subscriptions
-                        </v-list-item-title>
                     </v-list-item>
                 </v-list>
             </div>
@@ -65,12 +59,9 @@
                     @click.stop="openAndCloseDrawer()">mdi-format-align-justify
             </v-icon>
             <v-icon class="menu-icon" v-else @click.stop="openAndCloseDrawer()">mdi-format-align-left</v-icon>
-            <img class="ml-8 mr-4" height="40px"
-                 v-if="$vuetify.breakpoint.mdAndUp"
-                 src=""
-                 alt="Logo"/>
+            <span class="ml-2 mr-4" v-if="$vuetify.breakpoint.mdAndUp"></span>
             <v-toolbar-title class="ml-2 mr-12 align-center">
-                <span class="title">Dashboard Template</span>
+                <span class="title">Dashboard</span>
             </v-toolbar-title>
         </v-app-bar>
     </div>
@@ -166,12 +157,15 @@
         background-clip: content-box, border-box;
     }
 
-    .sidebar-list {
-        padding-left: 8px;
+    hr {
+        background-color: white;
+        border-width: 0;
+        height: 1px;
+        color: white;
     }
 
     .menu-icon {
-        margin-left: 28px;
+        margin-left: 26px;
         margin-right: 22px;
     }
 
