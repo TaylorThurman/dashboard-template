@@ -7,11 +7,13 @@
                 :expand-on-hover="mini"
                 :permanent="permanent"
                 :mini-variant.sync="mini"
+                mini-variant-width="100"
                 fixed
                 hide-overlay
                 floating
                 width="250"
                 class="nav"
+                disable-resize-watcher
         >
             <div class="sidebar">
                 <v-list dense class="sidebar-list">
@@ -51,10 +53,11 @@
                 </v-list>
             </div>
         </v-navigation-drawer>
+
         <v-app-bar
                 app
                 :clipped-left="clipped"
-                class="nav-bar"
+                class="app-bar"
                 flat
                 v-click-outside="onClickOutsideNav"
         >
@@ -62,11 +65,11 @@
                     @click.stop="openAndCloseDrawer()">mdi-format-align-justify
             </v-icon>
             <v-icon class="menu-icon" v-else @click.stop="openAndCloseDrawer()">mdi-format-align-left</v-icon>
-            <img class="mx-4" height="40px"
+            <img class="ml-8 mr-4" height="40px"
                  v-if="$vuetify.breakpoint.mdAndUp"
                  src=""
                  alt="Logo"/>
-            <v-toolbar-title class="mr-12 align-center">
+            <v-toolbar-title class="ml-2 mr-12 align-center">
                 <span class="title">Dashboard Template</span>
             </v-toolbar-title>
         </v-app-bar>
@@ -77,8 +80,8 @@
     export default {
         name: "Navigation",
         data: () => ({
-            drawer: false,
-            permanent: false,
+            drawerToggle: false,
+            permanentToggle: false,
             toggleMini: true,
             items: [
                 {icon: 'mdi-trending-up', text: 'Most Popular'},
@@ -95,61 +98,61 @@
                 {picture: 78, text: 'MKBHD'},
             ],
         }),
-        props: ['miniToggledIn'],
         computed: {
             mini() {
                 // sets sidebar to mini when in larger screens
                 if (this.$vuetify.breakpoint.mdAndUp) {
                     this.toggleMini = this.toggleMini;
-                    this.$emit('miniToggledOut', this.toggleMini);
                     return this.toggleMini;
                 }
             },
             clipped() {
-                return !this.$vuetify.breakpoint.smAndDown;
+                return this.$vuetify.breakpoint.mdAndUp;
             },
+            drawer() {
+                if (this.$vuetify.breakpoint.mdAndUp) return true;
+                return this.drawerToggle;
+            },
+            permanent() {
+                if (this.$vuetify.breakpoint.mdAndUp) return true;
+                return this.permanentToggle;
+            }
         },
         methods: {
             onClickOutsideNav() {
                 if (this.$vuetify.breakpoint.smAndDown) {
-                    this.drawer = false;
-                    this.permanent = false;
+                    this.drawerToggle = false;
+                    this.permanentToggle = false;
                 }
             },
             openAndCloseDrawer() {
                 // opens and closes the drawer when in smaller screens
                 if (this.$vuetify.breakpoint.smAndDown) {
-                    this.drawer = !this.drawer
-                    this.permanent = this.drawer;
+                    console.log('small')
+                    this.drawerToggle = !this.drawerToggle
+                    this.permanentToggle = this.drawer;
                     return this.drawer;
                     // keeps the drawer open and toggles the mini back in forth in larger screens
                 } else {
-                    this.drawer = true;
+                    console.log('mdandup')
+                    this.drawerToggle = true;
                     this.toggleMini = !this.toggleMini;
-                    this.permanent = this.toggleMini;
-                    this.$emit('toggleMini', this.toggleMini);
+                    this.permanentToggle = true;
                     return this.toggleMini;
                 }
             }
         },
-        watch: {
-            miniToggledIn(val) {
-                console.log(val)
-                this.toggleMini = val;
-            }
-        }
     }
 </script>
 
 <style scoped>
-    .nav {
-        min-width: 100px;
-        background: transparent;
+    .app-bar {
+        background: transparent !important;
+        border-top: 2px solid #42b883;
     }
 
-    .nav-bar {
-        background: transparent!important;
-        border-top: 2px solid #42b883;
+    .nav {
+        background: transparent;
     }
 
     .sidebar {
@@ -163,18 +166,16 @@
         background-clip: content-box, border-box;
     }
 
-
+    .sidebar-list {
+        padding-left: 8px;
+    }
 
     .menu-icon {
-        margin-left: 30px;
-        margin-right: 20px;
+        margin-left: 28px;
+        margin-right: 22px;
     }
 
     @media (max-width: 960px) {
-        .menu-icon {
-            margin-left: 0px;
-            margin-right: 20px;
-        }
 
         .sidebar {
             margin-left: 0;
@@ -188,6 +189,11 @@
         .sidebar-list {
             padding-left: 0;
             height: 100%;
+        }
+
+        .menu-icon {
+            margin-left: 5px;
+            margin-right: 20px;
         }
     }
 </style>

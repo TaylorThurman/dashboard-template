@@ -1,8 +1,8 @@
 <template>
     <v-app>
-        <Navigation :miniToggledIn="toggleMini" @miniToggledOut="miniToggleListen"/>
+        <Navigation/>
 
-        <Main :miniToggledIn="toggleMini"/>
+        <Main/>
     </v-app>
 </template>
 
@@ -13,21 +13,17 @@
     export default {
         components: {Navigation, Main},
         data: () => ({
-            toggleMini: true,
         }),
         computed: {},
         created() {
             this.$vuetify.theme.dark = true
         },
         methods: {
-            miniToggleListen(val) {
-                this.toggleMini = val;
-            }
         }
     }
 </script>
 
-<style>
+<style scoped>
     body {
         background-color: #1e1e2f;
     }
