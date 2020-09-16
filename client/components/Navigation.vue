@@ -21,7 +21,7 @@
                         <v-list-item-action>
                             <img height="35px" style="border-radius: 50%;
     background-color: hsla(0,0%,100%,.9);"
-                                 src="https://demos.creative-tim.com/vue-black-dashboard-pro/img/icon-vue.png"
+                                 src="~/static/icon-vue.png"
                                  alt="Logo"/>
                         </v-list-item-action>
                         <v-list-item-content>
@@ -139,7 +139,7 @@
 <style scoped>
     .app-bar {
         background: transparent !important;
-        border-top: 2px solid #42b883;
+        border-top: 2px solid rgba(114, 192, 44, 1);
     }
 
     .nav {
@@ -151,10 +151,16 @@
         margin-right: 10px;
         margin-top: 10px;
         border-radius: 5px;
-        background-image: linear-gradient(0deg, #389466, #42b883);
+        height: calc(100vh - 90px);
+        background-image: linear-gradient(0deg, rgba(28, 63, 140, 1) 15%, rgba(114, 192, 44, 1) 100%);
         box-shadow: 0 2px 22px 0 rgba(0, 0, 0, .1), 0 4px 20px 0 rgba(0, 0, 0, .15);
         background-origin: border-box;
         background-clip: content-box, border-box;
+    }
+
+    .sidebar-list {
+        height: 100%;
+        overflow-x: hidden;
     }
 
     hr {
