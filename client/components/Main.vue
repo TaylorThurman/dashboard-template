@@ -1,7 +1,7 @@
 <template>
     <v-main>
         <div class="main">
-            <h1>Welcome</h1>
+            <nuxt />
         </div>
     </v-main>
 </template>

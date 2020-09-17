@@ -17,7 +17,7 @@
         >
             <div class="sidebar">
                 <v-list dense class="sidebar-list">
-                    <v-list-item>
+                    <v-list-item to="/">
                         <v-list-item-action>
                             <img height="35px" style="border-radius: 50%;
     background-color: hsla(0,0%,100%,.9);"
@@ -34,6 +34,7 @@
                     <v-list-item
                             v-for="item in items"
                             :key="item.text"
+                            :to="item.route"
                             link>
                         <v-list-item-action>
                             <v-icon class="sidebar-text">{{ item.icon }}</v-icon>
@@ -76,11 +77,11 @@
             permanentToggle: false,
             toggleMini: true,
             items: [
-                {icon: 'mdi-trending-up', text: 'Most Popular'},
-                {icon: 'mdi-youtube-subscription', text: 'Subscriptions'},
-                {icon: 'mdi-history', text: 'History'},
-                {icon: 'mdi-playlist-play', text: 'Playlists'},
-                {icon: 'mdi-clock', text: 'Watch Later'},
+                {icon: 'mdi-trending-up', text: 'Dashboard', route: '/dashboard'},
+                {icon: 'mdi-youtube-subscription', text: 'Subscriptions', route: '/settings'},
+                {icon: 'mdi-history', text: 'History', route: '/'},
+                {icon: 'mdi-playlist-play', text: 'Playlists', route: '/'},
+                {icon: 'mdi-clock', text: 'Watch Later', route: '/'},
             ],
             items2: [
                 {picture: 28, text: 'Joseph'},
