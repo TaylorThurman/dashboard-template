@@ -26,7 +26,7 @@
                         </v-list-item-action>
                         <v-list-item-content>
                             <v-list-item-title>
-                                <h3>Title</h3>
+                                <h3 class="sidebar-text">Title</h3>
                             </v-list-item-title>
                         </v-list-item-content>
                     </v-list-item>
@@ -36,10 +36,10 @@
                             :key="item.text"
                             link>
                         <v-list-item-action>
-                            <v-icon>{{ item.icon }}</v-icon>
+                            <v-icon class="sidebar-text">{{ item.icon }}</v-icon>
                         </v-list-item-action>
                         <v-list-item-content>
-                            <v-list-item-title>
+                            <v-list-item-title class="sidebar-text">
                                 {{ item.text }}
                             </v-list-item-title>
                         </v-list-item-content>
@@ -53,6 +53,7 @@
                 :clipped-left="clipped"
                 class="app-bar"
                 flat
+                dense
                 v-click-outside="onClickOutsideNav"
         >
             <v-icon class="menu-icon" v-if="(clipped && toggleMini) || (!clipped && !drawer)"
@@ -61,7 +62,7 @@
             <v-icon class="menu-icon" v-else @click.stop="openAndCloseDrawer()">mdi-format-align-left</v-icon>
             <span class="ml-2 mr-4" v-if="$vuetify.breakpoint.mdAndUp"></span>
             <v-toolbar-title class="ml-2 mr-12 align-center">
-                <span class="title">Dashboard</span>
+                <span class="title">DASHBOARD</span>
             </v-toolbar-title>
         </v-app-bar>
     </div>
@@ -146,10 +147,14 @@
         background: transparent;
     }
 
+    .sidebar-text {
+        color: white;
+    }
+
     .sidebar {
         margin-left: 20px;
-        margin-right: 10px;
-        margin-top: 10px;
+        margin-right: 20px;
+        margin-top: 15px;
         border-radius: 5px;
         height: calc(100vh - 90px);
         background-image: linear-gradient(0deg, rgba(28, 63, 140, 1) 15%, rgba(114, 192, 44, 1) 100%);
@@ -171,7 +176,7 @@
     }
 
     .menu-icon {
-        margin-left: 26px;
+        margin-left: 23px;
         margin-right: 22px;
     }
 

@@ -1,7 +1,6 @@
 <template>
     <v-app>
         <Navigation/>
-
         <Main/>
     </v-app>
 </template>
@@ -12,9 +11,6 @@
 
     export default {
         components: {Navigation, Main},
-        data: () => ({
-        }),
-        computed: {},
         created() {
             this.$vuetify.theme.dark = true
         },
@@ -23,7 +19,7 @@
     }
 </script>
 
-<style scoped>
+<style>
     body {
         background-color: #1e1e2f;
     }
