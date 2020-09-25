@@ -15,6 +15,6 @@
 <style scoped>
     .main {
         padding: 5px;
-        margin: 0 16px;
+        margin: 10px 10px;
     }
 </style>

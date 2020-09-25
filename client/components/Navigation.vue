@@ -7,7 +7,7 @@
                 :expand-on-hover="mini"
                 :permanent="permanent"
                 :mini-variant.sync="mini"
-                mini-variant-width="100"
+                mini-variant-width="120"
                 fixed
                 hide-overlay
                 floating
@@ -17,7 +17,7 @@
         >
             <div class="sidebar">
                 <v-list dense class="sidebar-list">
-                    <v-list-item to="/">
+                    <v-list-item to="/dashboard">
                         <v-list-item-action>
                             <img height="35px" style="border-radius: 50%;
     background-color: hsla(0,0%,100%,.9);"
@@ -78,10 +78,7 @@
             toggleMini: true,
             items: [
                 {icon: 'mdi-trending-up', text: 'Dashboard', route: '/dashboard'},
-                {icon: 'mdi-youtube-subscription', text: 'Subscriptions', route: '/settings'},
-                {icon: 'mdi-history', text: 'History', route: '/'},
-                {icon: 'mdi-playlist-play', text: 'Playlists', route: '/'},
-                {icon: 'mdi-clock', text: 'Watch Later', route: '/'},
+                {icon: 'mdi-youtube-subscription', text: 'Subscriptions', route: '/settings'}
             ],
             items2: [
                 {picture: 28, text: 'Joseph'},
@@ -177,8 +174,8 @@
     }
 
     .menu-icon {
-        margin-left: 23px;
-        margin-right: 22px;
+        margin-left: 33px;
+        margin-right: 10px;
     }
 
     @media (max-width: 960px) {
