@@ -7,7 +7,7 @@
                 :expand-on-hover="mini"
                 :permanent="permanent"
                 :mini-variant.sync="mini"
-                mini-variant-width="120"
+                mini-variant-width="115"
                 fixed
                 hide-overlay
                 floating
@@ -17,7 +17,7 @@
         >
             <div class="sidebar">
                 <v-list dense class="sidebar-list">
-                    <v-list-item to="/dashboard">
+                    <v-list-item to="/">
                         <v-list-item-action>
                             <img height="35px" style="border-radius: 50%;
     background-color: hsla(0,0%,100%,.9);"
@@ -54,7 +54,6 @@
                 :clipped-left="clipped"
                 class="app-bar"
                 flat
-                dense
                 v-click-outside="onClickOutsideNav"
         >
             <v-icon class="menu-icon" v-if="(clipped && toggleMini) || (!clipped && !drawer)"
@@ -65,6 +64,38 @@
             <v-toolbar-title class="ml-2 mr-12 align-center">
                 <span class="title">DASHBOARD</span>
             </v-toolbar-title>
+
+            <v-menu offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                    <div class="settings"
+                         v-bind="attrs"
+                         v-on="on">
+                        <img height="30px" style="border-radius: 50%;
+    background-color: hsla(0,0%,100%,.9);"
+                             src="~/static/icon-vue.png"
+                             alt="Logo"/>
+                        <b class="caret"></b>
+                    </div>
+                    <!--                    <v-btn-->
+                    <!--                            color="primary"-->
+                    <!--                            dark-->
+                    <!--                            v-bind="attrs"-->
+                    <!--                            v-on="on"-->
+                    <!--                    >-->
+                    <!--                        Dropdown-->
+                    <!--                    </v-btn>-->
+                </template>
+                <v-list>
+                    <v-list-item
+                            v-for="(item, index) in dropItems"
+                            :key="index"
+                            @click=""
+                    >
+                        <v-list-item-title>{{ item.title }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+
         </v-app-bar>
     </div>
 </template>
@@ -87,6 +118,12 @@
                 {picture: 58, text: 'Nokia'},
                 {picture: 78, text: 'MKBHD'},
             ],
+            dropItems: [
+                {title: 'Click Me'},
+                {title: 'Click Me'},
+                {title: 'Click Me'},
+                {title: 'Click Me 2'},
+            ]
         }),
         computed: {
             mini() {
@@ -151,7 +188,7 @@
 
     .sidebar {
         margin-left: 20px;
-        margin-right: 20px;
+        margin-right: 15px;
         margin-top: 15px;
         border-radius: 5px;
         height: calc(100vh - 90px);
@@ -198,5 +235,25 @@
             margin-left: 5px;
             margin-right: 20px;
         }
+    }
+
+    .caret {
+        width: 0;
+        height: 0;
+        vertical-align: middle;
+        border-top: 4px dashed;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+        margin-top: -5px;
+        margin-left: 3px;
+    }
+
+    .settings {
+        position: absolute;
+        right: 30px;
+    }
+
+    .v-menu__content {
+        box-shadow: 0 10px 50px 0 rgba(0,0,0,.2)!important;
     }
 </style>

@@ -15,6 +15,13 @@
 <style scoped>
     .main {
         padding: 5px;
-        margin: 10px 10px;
+        margin: 10px 15px 10px 0;
     }
+
+    @media (max-width: 960px) {
+        .main {
+            margin: 10px 15px;
+        }
+    }
+
 </style>

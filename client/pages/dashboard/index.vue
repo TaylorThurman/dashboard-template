@@ -1,5 +1,7 @@
 <template>
-    <div>Dashboard</div>
+    <v-card flat>
+        <v-card-title>Dashboard</v-card-title>
+    </v-card>
 </template>
 
 <script>
